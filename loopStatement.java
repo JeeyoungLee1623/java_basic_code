@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class loopStatement {
@@ -46,8 +47,8 @@ public class loopStatement {
         }
          */
 
-      // int a = 32;
-      // int answer = 0;
+        // int a = 32;
+        // int answer = 0;
 
 //        answer += a%10;
 //        answer += a/10;
@@ -95,7 +96,7 @@ public class loopStatement {
 //        System.out.println(count);
 
         // do {} while(조건식)
-    //  종종 사용할 상황이 생긴다.
+        //  종종 사용할 상황이 생긴다.
 //        int a = 10;
 //        do{
 //            System.out.println("hello world");
@@ -180,8 +181,205 @@ public class loopStatement {
             System.out.println(arr1[i]);
         }
         // arr1.length  라고 하는 수식이 있는데 값이 얼마나 많은지 모를때 쓸 수 있다.
+*/
+
+//
+//        int[] arr = {50, 60, 20, 30, 90, 100};
+//        int total = 0;
+
+        // 합을 구하는 식
+       /*
+       for(int i = 0; i < arr.length; i++){
+            total += arr[i];
+        }
+        System.out.println(total); */
+
+/*  /
+        for(int i= 0; i <arr.length; i++){
+            total += arr[i];
+        }
+
+        System.out.println(total);
+        double average = (double)total / arr.length; // 소수점 중요 
+        System.out.println(average);
+        */
+
+        // max에 최대 값을 넣을 것
+     /*   int max = arr[0];
+        for (int i = 0; i < arr.length; i++){
+            if(max < arr[i]) {
+                max = arr[i];
+            }
+        }
+        System.out.println(max);
+        */
+
+      /*  int min = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+            System.out.println(min);
 
 
+       */
+        // 향상된 for 문
+            /*
+            int max = arr[0];
+            int min = arr[0];
+            for (int a : arr) {
+                if (max < a) max = a;
+                if (max > a) max = a;
+            }
+            */
+
+        // 쉽게 풀 수 있는 방법
+        //int total = Arrays.stream(arr).sum(); arr.s 만쳐도 나온다.
+        // double avr = Arrays.stream(arr).average().getAsDouble(); // double로 평균을 낼때 getdouble 해줘야한다.
+        //   int max = Arrays.stream(arr).min().getAsInt();
+
+//        int a = 10;
+//        int b = 20;
+////        for (int i = 1; i <=a; i++){
+////            if(a % i == 0){
+////                System.out.println("약수는 " + i); }
+//
+//        int num = a < b ? a : b;
+//        int max = 0;
+//        for(int i = 1; i <= num; i++){
+//            if(a % i == 0 && b % i == 0){
+//                max = i;
+//            }
+//            int min = max * (a/max)*(b/max);
+
+        // 숫자가 많은 경우 최대공약수 최소공배수
+
+//        int [] arr = { 100,20,30,60,80,20,110,200,300};
+//        int min = arr[0];
+//        for (int i = 0; i < arr.length; i++) {
+//            if (min > arr[i]) {
+//                min = arr[i];
+//            }
+//        }
+//            System.out.println(min);
+//
+//        int num = Arrays.stream(arr).min().getAsInt();
+//
+//        int max = 0;
+//        for(int i = 1; i <= num; i ++){
+//            boolean trueOrNot = true;
+//            for(int a : arr) {
+//                if(a % i !=0){
+//                    trueOrNot = false;
+//                }
+//            }
+//            if(trueOrNot == true){
+//                max = i;
+//            }
+//        }
+//        System.out.println(max);
+////최대공약수
+//        int min = max;
+//        for(int a : arr){
+//            min *= a/max;
+//        }
+
+
+        //배열의 자리 바꿈
+//        int [] arr = {10,20};
+//        System.out.println(arr);
+//        System.out.println(Arrays.toString(arr)); // 배열의 값이 한번이 보고 싶을 때 보는 방법 (함수 사용) 일반적인 출력으로는 주소 값만 나옴
+////        arr[0] = 20;
+////        arr[1] = 10;
+////        System.out.println(Arrays.toString(arr));
+//        int temp = arr[0];
+//        arr[0] = arr[1];
+//        arr[1] = temp;
+//        System.out.println(Arrays.toString(arr));
+//        // 날라갈 것 같은 , 임시의 데이터 변수는 temp 라고 한다.
+
+//        int [] arr = {10,20,30,40,50}; // 20,30,40,50,10
+//        // 시뮬레이션을 많이 돌려봐야 한다
+//        for(int i=0; i <arr.length-1; i++){
+//            int temp = arr[i];
+//            arr[i] = arr[i+1];
+//            arr[i+1] = temp;
+//        }
+//        System.out.println(Arrays.toString(arr));
+
+//        int [] arr = {10,20,30,40,50}; // 20,30,40,50,10
+//        // 시뮬레이션을 많이 돌려봐야 한다
+//        for(int i=0; i <arr.length-1; i++){
+//            int temp = arr[i];
+//            arr[i] = arr[i+1];
+//            arr[i+1] = temp;
+//        }
+        //bubble sort
+////      if(arr[i] < arr[i+1])
+//        // 2중 포문 + 뒷자리가 차면 그 횟수만큼 줄어들어야 하는 것도 감안 해야한다
+//        System.out.println(Arrays.toString(arr));
+
+//        int[] arr = {50, 60, 40, 70, 10, 20};
+//        for (int i = 0; i < arr.length - 1; i++) {
+//            int max = arr[i];
+//            if(arr[i] < arr[i+1]){
+//                arr[i] = arr[i+1];
+//                }
+//            }
+            // 선생님 풀이
+        // for문 사용시
+//        int[] arr = {50, 60, 40, 70, 10, 20};
+//        for (int i = 0; i < arr.length-1; i++) {
+//           for(int j = 0; j < arr.length -i -1; j++){
+//               if(arr[j] > arr[j+1]){
+//                   int temp = arr[j];
+//                   arr[j] = arr[j+1];
+//                   arr[j+1] = temp;
+//               }
+//            }
+
+        // 불필요한 점검 할 필요 없이 하는 코드 방법
+        int[] arr = {50, 60, 40, 70, 10, 20};
+        for (int i = 0; i < arr.length-1; i++) {
+            Boolean trueOrNot = true;
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    trueOrNot = false;
+                }
+            }
+            if (trueOrNot == true) {
+                break;
+            }
+        }
+
+        System.out.println(Arrays.toString(arr));
+
+
+        //while문 사용시
+//        int num = 0;
+//        while(num <arr.length-1){
+//        for(int j = 0; j < arr.length - num-1; j++){
+//            if(arr[j] > arr[j+1]){
+//                int temp = arr[j];
+//                arr[j] = arr[j+1];
+//                arr[j+1] = temp;
+//
+//        }
+//        System.out.println(Arrays.toString(arr));
+    }
+}
+
+
+
+
+
+
+
+
+/*
         //enhanced for 문
         // int에 담겨있는 값을 a에 적용 시키는 것
         // 위의 식을 아래처럼 간단히 쓸 수 있다.
@@ -191,9 +389,9 @@ public class loopStatement {
         }
  */
 
-        // String 타입으로 "aaa" "bbb" "ccc" "ddd" "fff"를 담고,
-        // for 문 방식으로 출력해보고
-        // foreach 문을 통해 출력
+            // String 타입으로 "aaa" "bbb" "ccc" "ddd" "fff"를 담고,
+            // for 문 방식으로 출력해보고
+            // foreach 문을 통해 출력
 
 /*
         String [] a = {"aaa", "bbb", "ccc", "ddd", "fff"};
@@ -206,16 +404,16 @@ public class loopStatement {
             System.out.println(b);
         }
 */
-        // 값이 변경 가능 하지만 enhanced for 문은 변경이 안됨. (복사본이기 때문에)
+            // 값이 변경 가능 하지만 enhanced for 문은 변경이 안됨. (복사본이기 때문에)
        /* int [] arr1 = {10,20,30,40,50};
         for(int i = 0; i <5; i++) {
             arr1[i]+=10; // arr1 = arr1 + 10 과 같은 문법이므로 arr1의 값 자체가 변한다.
             System.out.println(arr1[i]);
         }
         */
-        
 
-        // 2중 (다중) 반복문
+
+            // 2중 (다중) 반복문
 /*
         int num = 2;
         for(int i=1; i < 10; i++){
@@ -224,41 +422,17 @@ public class loopStatement {
         }
  */
 
-
+    /*
         for(int i = 2; i < 6; i++){
             System.out.println(i + "단입니다.");
             for(int j=1; j < 10; j++) {
                 System.out.println(i*j);
             }
         }
+     */
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
-}
