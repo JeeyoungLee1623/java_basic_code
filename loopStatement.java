@@ -198,7 +198,7 @@ public class loopStatement {
         for(int i= 0; i <arr.length; i++){
             total += arr[i];
         }
-
+    //  평균
         System.out.println(total);
         double average = (double)total / arr.length; // 소수점 중요 
         System.out.println(average);
@@ -326,7 +326,7 @@ public class loopStatement {
 //                arr[i] = arr[i+1];
 //                }
 //            }
-            // 선생님 풀이
+        // 선생님 풀이
         // for문 사용시
 //        int[] arr = {50, 60, 40, 70, 10, 20};
 //        for (int i = 0; i < arr.length-1; i++) {
@@ -339,23 +339,65 @@ public class loopStatement {
 //            }
 
         // 불필요한 점검 할 필요 없이 하는 코드 방법
-        int[] arr = {50, 60, 40, 70, 10, 20};
-        for (int i = 0; i < arr.length-1; i++) {
-            Boolean trueOrNot = true;
-            for (int j = 0; j < arr.length - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                    trueOrNot = false;
-                }
-            }
-            if (trueOrNot == true) {
-                break;
-            }
-        }
+        // 테스트케이스를 몇개 만들어야 한다.
+        // arr.length -1 : 전체반복회수
+        // 세부 반복 횟수: 5+4+3+2+1
+        // 우선 규칙을 먼저 찾아야함
 
-        System.out.println(Arrays.toString(arr));
+        //bubble sort
+        // bubble sort의 i는 반복 횟수를 지정하기 위한 것
+//        int[] arr = {50, 60, 40, 70, 10, 20};
+//        for (int i = 0; i < arr.length-1; i++) {
+//            Boolean trueOrNot = true;
+//            for (int j = 0; j < arr.length - i - 1; j++) {
+//                if (arr[j] > arr[j + 1]) {
+//                    int temp = arr[j];
+//                    arr[j] = arr[j + 1];
+//                    arr[j + 1] = temp;
+//                    trueOrNot = false;
+//                }
+//            }
+//            if (trueOrNot == true) {
+//                break;
+//            }
+//        }
+//        System.out.println(Arrays.toString(arr));
+
+        //selection sort
+        // 많이 사용하는 알고리즘
+//        int[] arr = {50, 20, 60, 40, 30, 10};
+//        for(int i = 0; i < args.length; i++){
+//            for(int j = 0; j < arr.length; j++){
+//             if(arr[i] > arr[i+j]){
+//                 int temp = arr[j];
+//                    arr[j] = arr[i+j];
+//                    arr[j + j] = temp;
+//             }
+//            }
+//        }
+//        int[] arr = {50, 20, 60, 40, 30, 10};
+//        for (int i = 0; i < args.length - 1; i++) {
+//            for(int j = i + 1; j < arr.length; j++) {
+//                if(arr[i] > arr[j]) {
+//                    int temp = arr[i];
+//                    arr[i] = arr[i + j];
+//                    arr[i + j] = temp;
+//                }
+//            }
+//        }
+//        System.out.println(Arrays.toString(arr));
+
+
+//            int num = 1;
+//            while (i+num < arr.length) {
+//                if(arr[i] > arr[i+num]){
+//                int temp = arr[i];
+//                arr[i] = arr[i+num];
+//                arr[i+num] = temp;
+//            }
+//            num++;
+//        }
+//    }
 
 
         //while문 사용시
@@ -369,8 +411,82 @@ public class loopStatement {
 //
 //        }
 //        System.out.println(Arrays.toString(arr));
-    }
-}
+//    }
+//  }
+
+
+        //제어문
+        //continue , break 문
+        // 1~ 100 중에서 5의 약수 또는 7의 약수를 제외한 값을 출력
+
+//        int num = 1;
+//        while(num < 101){
+//            if(num % 5 ==0 || num % 7 ==0){
+//                // 반복문 내에서 조건문 검사로 다시 올라가도록 하는 구문.
+//                // 아래와 같이 coding 할 경우 무한 루프에 빠지게 된다.
+//                continue;
+//            }else{
+//                System.out.println(num);
+//            }
+//            num++;
+//        }
+        // 추가적인 구문이 더 있을 경우에 해당 구문을 실행시킬 필요가 없을 때 continue;
+        // continue 구문은 조건식으로 바로 올라간다
+//        for(int i = 1; i <= 101; i++){
+////            if (i % 5 == 0 || i % 7 == 0){
+////                continue;
+////            }else{
+////                System.out.println(i);
+////            }
+////        }
+////
+        // break 문
+        // break 문은 중도에 반복문을 강제 종료 시키는 것.
+//        int num = 1;
+//        while(true){
+//            if (num % 5 == 0 || num % 7 == 0){
+//            }else{
+//                System.out.println(num);
+//           }
+//            num++;
+//
+//            if(num==101){
+//                break;
+//            }
+//        }
+
+
+        // break에서 라벨링을 했을 경우 특정 전체 for문을 종료시킬 수 있다.
+        // 그렇지 않으면 가장 가까운 for문만 종료가 된다.
+        // 정말 많이 활용되는 케이스
+
+//        int [] arr= {3,20,10,40};
+//        firstFor:
+//        for(int i = 0; i < arr.length-1; i++){
+//            boolean trueOrNot = true;
+//            secondFor:
+//            for(int j = 0; j < arr.length -i-1; j++) {
+//                if(arr[j]>arr[j+1]){
+//                    int temp = arr[j];
+//                    arr[j] = arr[j+1];
+//                    arr[j+1] = temp;
+//                    trueOrNot = false;
+//                    break firstFor;
+//                }
+//            }
+//        }
+
+        Label1:
+        for(int i = 0; i <5; i++){
+            System.out.println("first for 문" + i);
+            Label2:
+            for(int j = 0; j <5; j++){
+                System.out.println("second for 문" + j);
+                if(j==1) {
+                    break Label1;
+                }
+            }
+        }
 
 
 
@@ -389,9 +505,9 @@ public class loopStatement {
         }
  */
 
-            // String 타입으로 "aaa" "bbb" "ccc" "ddd" "fff"를 담고,
-            // for 문 방식으로 출력해보고
-            // foreach 문을 통해 출력
+        // String 타입으로 "aaa" "bbb" "ccc" "ddd" "fff"를 담고,
+        // for 문 방식으로 출력해보고
+        // foreach 문을 통해 출력
 
 /*
         String [] a = {"aaa", "bbb", "ccc", "ddd", "fff"};
@@ -404,7 +520,7 @@ public class loopStatement {
             System.out.println(b);
         }
 */
-            // 값이 변경 가능 하지만 enhanced for 문은 변경이 안됨. (복사본이기 때문에)
+        // 값이 변경 가능 하지만 enhanced for 문은 변경이 안됨. (복사본이기 때문에)
        /* int [] arr1 = {10,20,30,40,50};
         for(int i = 0; i <5; i++) {
             arr1[i]+=10; // arr1 = arr1 + 10 과 같은 문법이므로 arr1의 값 자체가 변한다.
@@ -413,7 +529,7 @@ public class loopStatement {
         */
 
 
-            // 2중 (다중) 반복문
+        // 2중 (다중) 반복문
 /*
         int num = 2;
         for(int i=1; i < 10; i++){
@@ -432,7 +548,5 @@ public class loopStatement {
      */
 
 
-
-
-
-
+    }
+}
