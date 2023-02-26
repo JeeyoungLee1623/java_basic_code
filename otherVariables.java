@@ -1,5 +1,7 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.lang.reflect.AnnotatedType;
+import java.sql.Array;
+import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class otherVariables {
     public static void main(String[] args) {
@@ -16,7 +18,6 @@ public class otherVariables {
         // list -> 사용하는 이유는 배열의 길이를 늘이고 줄일 수가 있기 때문이다. / 일반적인 출력이 가능하다.
         // map : key(이름), value
         // set, queue, stack
-
 
 
         // String의 표현 방식
@@ -63,7 +64,7 @@ public class otherVariables {
 //        // contains : 특정 문자가 특정문자에 포함되어 있는지 아닌지를 boolean으로 return.
 //        System.out.println(a.contains("python"));
 //
-            // charAt(): String을 하나씩 잘라서 char 형태로 return.
+        // charAt(): String을 하나씩 잘라서 char 형태로 return.
 //        String st1 = "abcdelske";
 //        System.out.println(st1.charAt(3) =='d');
 //
@@ -163,10 +164,10 @@ public class otherVariables {
 //        for(String a : arr) {
 //            sb.append(a);
 //        }
+//        sb.insert(10,"dsdfsa"); //(index자리, 끼워넣고 싶은 문자) StringBuffer 에서 가능
 //        String result2 = sb.toString();
 //        System.out.println(result2);
-
-
+//
 
 
         // 코딩 테스트 (이상한 문자 만들기)
@@ -227,31 +228,29 @@ public class otherVariables {
         // cnt 대신에 i를 쓰지 않는 이유:
         // i로 할 경우에는 s에 들어있는 문장 전체의 index값을 처리하기 때문에 내가 설정한 값이 틀어진다. 반복작업에서 오류 발생
         // 하지만 cnt로 할 경우 초기화식 cnt = 0;을 넣어줌으로 해서 단어들 마다의 index값을 초기화 하여 설정한 반복 작업이 제대로 이루어짐.
-        String s = "trjy hello world";
-        String [] s_arr = s.split("");
-        String answer = "";
-        int cnt = 0;
-        for(int i = 0; i < s_arr.length; i++){
-            if(s_arr[i].isBlank()){
-                answer += s_arr[i];
-                cnt = 0; // 공백을 0으로 만들어줌으로 index값을 0123으로 갈 수 있게끔 해준다.
-            }else{
-                if(cnt % 2 == 0){
-                    answer += s_arr[i].toUpperCase();
-                }else{
-                    answer += s_arr[i].toLowerCase();
-                }
-                cnt++;
-            }
-        }
-        System.out.println(answer);
+//        String s = "trjy hello world";
+//        String [] s_arr = s.split("");
+//        String answer = "";
+//        int cnt = 0;
+//        for(int i = 0; i < s_arr.length; i++){
+//            if(s_arr[i].isBlank()){
+//                answer += s_arr[i];
+//                cnt = 0; // 공백을 0으로 만들어줌으로 index값을 0123으로 갈 수 있게끔 해준다.
+//            }else{
+//                if(cnt % 2 == 0){
+//                    answer += s_arr[i].toUpperCase();
+//                }else{
+//                    answer += s_arr[i].toLowerCase();
+//                }
+//                cnt++;
+//            }
+//        }
+//        System.out.println(answer);
 
         //공백 기준으로 잘랐을 경우
         // 예제 카톡
 
 
-        
-        
         // Trim : 문자열 양 끝에 공백을 제거
         // 예를들어 로그인시 양 끝에 공백이 생길 경우 자동으로 제거해준다.
 //        String db_input = "abx@naver.com";
@@ -274,14 +273,216 @@ public class otherVariables {
 //        System.out.println(a.strip());
 
 
+        // String 에서 int 로 변환
+        // Integer.parseInt
+//        String st = "10";
+//        int num = Integer.parseInt(st);
+//        System.out.println(num);
+
+        //int 에서 String 으로 변환
+        // Integer.toString / String.valueOf
+        // 웬만한 타입은 모두 toString 을 가지고 있다.
+        // new 해서 만드는 대부분의 객체에 toString 이 있다.
+
+//        int a = 10;
+//        String st = Integer.toString(a);
+//        st = String.valueOf(a);
+//
+//      // char int 간의 변환
+//        char ch = 'a';
+//        int num = (int)ch;
+//        num = Character.valueOf(ch);
+//        System.out.println(num);
+//
+//        //상호간의 변환은 꼭 기억하고 있어야 한다.
+
+        // 배열 선언하는 방법
+        //선언과 동시에 초기화
+//        int [] arr = {10,20,30,40,50};
+//        // 선언만 / 선언만 하는 자바의 배열은 반드시 길이를 명시해야 한다.
+//        // primitive 타입은 해당 타입으로 초기화, 참조형 변수는 null 로 초기화
+//        int [] arr2 = new int [5]; // new 는 int 에 대한것이 아니다.
+//        System.out.println(arr2[3]);
+//        arr2[0] = 10;
+//        arr2[1] = 20;
+//        arr2[2] = 30;
+//        // 이런식으로 값을 넣는다.
+//
+//
+//        // String 은 배열의 값이 null 로 셋팅이 된다.
+//        String [] st_arr = {"abc", "bfs"};
+//        String [] st_arr1 = new String[10];
+//        System.out.println(st_arr1[5]);
 
 
+        //Arrays 클래스 기능
+//        int [] arr = {30,20,10,50};
+//        // 오름차순 정렬: Arrays.sort
+//        // 프로그래밍에서 별다른 설정이 없으면, 정렬의 기본은 오름차순
+//        Arrays.sort(arr);
+//        System.out.println(Arrays.toString(arr));
+        // 내림차순 같은 경우엔 Integer 를 쓰거나, Comparator 를 이용해야 한다.
+        // Arrays.sort 의 내리마순은 collections.reverseOrder 를 써야 한다. 그런데, primitive 타입은 안된다.
+//        String [] st_arr = {"sbc", "aaa", "hfs"};
+//        // 문자 모든 자리수의 오름 차순을 비교하여 정렬을 시킨다.
+//        Arrays.sort(st_arr, Collections.reverseOrder());
+//
+//        // int 의 내림차순 정렬: Integer 로 변환을 해주고 Collection.reverseOrder 해준다.
+//        // Collection.reverseOrder 는 기본중의 기본 자료형에는 먹히지 않는다. int 가 그 대표적인 예
+//        Integer [] arr_integer = Arrays.stream(arr).boxed().toArray(Integer[]::new);
+//        Arrays.sort(arr_integer, Collections.reverseOrder());
+//        System.out.println(Arrays.toString(arr_integer));
+//
+//        // int 의 내림차순이 기억이 안나면 오름차순으로 정렬시키고, 내림차순은 직접 해야한다.
+//        Arrays.sort(arr);
+//        int [] arr_new = new int[arr.length];
+//        int cnt = 0;
+//        for(int i = arr.length-1; i>=0; i--){
+//            arr_new[cnt] = arr[i];
+//            cnt++;
+//        }
+//        System.out.println(arr_new);
 
 
+        // 검색 : binarySearch(이진검색) = 자료형이 정렬되어 있어야 정상적으로 자료를 검색하여 index 를 return.
+        // binarySearch는 프로그래밍 전반에서 아주 중요하다 / index의 절반을 잘라서 크다 작다를 비교 
+        // 주로 database 에서 주로 사용한다
+//        int [] arr = {30,20,10,50};
+//        Arrays.sort(arr);
+//        System.out.println(Arrays.binarySearch(arr, 50));
+
+        // 배열의 복사 : copyOf(복사하고자 하는 배열, lenth), copyOfRange (복사하고자 하는 매열, a,b)
+        // 자주 사용하지는 않는다.
+//        String [] arr_st = {"a1", "b1", "c1"};
+//        String [] arr_st_new = Arrays.copyOf(arr_st, 5);
+//        System.out.println(Arrays.toString(arr_st_new));
 
 
+        // List 는 배열과의 차이는 자료 길이의 유연함이다.
+        // 선언 받은 new List 를 통해 list 를 생성한다.
+//      첫번째 표현 방식
+//        List<String> l1 = new ArrayList<>();
+//        l1.add("avd");
+//        l1.add("gds");
+//        System.out.println(l1);
+
+        // 두번째 표현 방식
+        // 거의 쓸 일은 없지만 ArrayList 안에다가
+//        List<String> l2 = new ArrayList<>(Arrays.asList("abc" , "bdd"));
+
+//        String [] arr = {"a1" , "b1" , "c1" , "d1"};
+//        List<String> l1 = new ArrayList<>(Arrays.asList(arr)); //넣는 방법 1
+//        List<String> l2 = new ArrayList<>(); // 넣는 방법 2
+//        for(String a : arr) {
+//            l2.add(a);
+//        }
+//
+//
+//        // List 에서 배열로 변환
+//        // list 에서 값을 꺼내는 방법은 l2.get(index)
+//        // list 의 크기를 l2.size();
+//        String [] answer = new String [l2.size()];
+//        for(int i = 0; i < answer.length; i++){
+//            answer[i] = l2.get(i);
+//        }
+//
+//        String [] answer2 = l2.stream().toArray(String[]::new); // 트랜디한 풀이 방법/ 메모리 문제가 있지만/ 현업에서도 많이 사용
+//
+//        int [] arr2 = {10,20,30};
+//        List<Integer> n2 = new ArrayList<>();
+//        for(int a : arr2){
+//            n2.add(a);
+//        }
+//        // 형변환이 int 에서 Integer 로 자동으로 이루어 진다. (묵시적으로)
+//        System.out.println(n2);
+
+        // 배열(length) 만 빼고 다 size 다.
+        // collection 프레임워크 (list, map, set, queque) 길이를 size로 한다.
 
 
+        // list 의 remove 는 index 로 지울 수 있고, value 로 지울 수 도 있다.
+//        List<Integer> lst = new ArrayList<>();
+//        lst.add(1);
+//        lst.add(2);
+//        lst.add(3);
+//        lst.remove(2);
+//        System.out.println(lst);
+//        System.out.println(lst.contains(1)); //contain 은 boolean 타입으로 출력된다.
+//        System.out.println(lst.isEmpty());
+
+        // list 의 정렬 : sort, comparator.naturaOrder(오름차순), Comparator.reverseOrder(내림차순)
+//        List<String> lst = new ArrayList<>();
+//        lst.add("b");
+//        lst.add("a");
+//        lst.add("c");
+//        lst.sort(Comparator.naturalOrder());
+//        lst.sort(Comparator.reverseOrder());
+//        String [] arr = {"b" , "a" , "c"};
+//        Arrays.sort(arr);
+//        Arrays.sort(arr, Comparator.reverseOrder());
+
+
+//        int [] arr_num = {4,2,1,3};
+//        Integer [] arr_num_new = new Integer [arr_num.length];
+//        int cnt = 0;
+//        for(int a : arr_num){
+//            arr_num_new[cnt] = a;
+//            cnt++;
+//        }
+
+
+        // map 은 사전과 같다. Key 와 Value 를 한쌍으로 하는 자료형이다.
+        //map 은 자료 검색 시 key 를 통해 굉장히 빠르게 value 를 찾아올 수 있다.(속도 보장). List 보다 훨씬 빠른 속도를 가지고 있다.
+//        Map<String, String> mp = new HashMap<>();
+//        //  key , value
+//        // map 에 값을 더할 때 / map 에서 key 는 중복되지 않는다. 유일한 값이 되어야 한다 / value 는 중복 가능
+//        // map 의 키에는 순서(index)가 없다.
+//        mp.put("a1" , "abc"); // 값을 put 을 통해서 꺼낸다. / value 가 중복이 가능하므로 value 를 통해 값을 꺼낼 수는 없다.
+//        mp.put("a2" , "abc");
+//        mp.put("a3" , "abc");
+//        System.out.println(mp);
+//
+//        // map 에서 값을 꺼낼 때는 key 를 통해서 값을 꺼낸다.
+//        System.out.println(mp.get("a1"));
+//
+//        //key 목록 (쓸일이 굉장히 많다)
+//        System.out.println(mp.keySet());
+//
+//        // 문제
+//        // 각 key 에 문자 f를 붙여 출력해보라.
+//
+//        for(String a : mp.keySet()) {
+//            System.out.println(a + "f");
+//        }
+//
+//        // value 목록 (쓸 일이 별로 없다)
+////        System.out.println(mp.values());
+//
+//        // containskey: 해당 key가 있는지 없는지 , remove(key)
+//        System.out.println(mp.containsKey("a1"));
+
+        // 완주하지 못한 선수
+        // 푸는 것 숙제
+        String[] participant = {"leo", "leo", "kiki", "eden", "aaaa"};
+        String[] completion = {"kiki", "leo", "eden", "aaaa"};
+        // completion
+        // eden :3
+        // leo : 1
+
+        Map<String, Integer> mp = new HashMap<>();
+
+        // participant
+        for (String a : participant) {
+            if (mp.containsKey(completion)) {
+                if (mp.get(a) > 1) {
+                    mp.put(a, mp.get(a) - 1);
+                } else {
+                    mp.remove(a);
+                }
+            } else
+                answer = a;
+        }
+    }
 
 
 
