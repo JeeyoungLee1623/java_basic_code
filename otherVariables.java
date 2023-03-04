@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.lang.reflect.AnnotatedType;
 import java.sql.Array;
 import java.util.*;
@@ -461,28 +462,181 @@ public class otherVariables {
 //        // containskey: 해당 key가 있는지 없는지 , remove(key)
 //        System.out.println(mp.containsKey("a1"));
 
+
+        // map의 요소를 출력하는 방법 1 : Enhanced For 문
+//        Map<String, String> map1 = new HashMap<>();
+//        map1.put("a1", "abc1");
+//        map1.put("a2", "abc2");
+//
+//
+//        // 방법 2: iterator 방식: iterator() 메소드를 이용한 요소의 출력
+//        //iterator 의 특징은 요소를 꺼낼때 소모가 된다. 그래서 꺼낸 후에는 실제 map 안에는 자료가 없다.
+//
+//        Iterator<String> iter = map1.keySet().iterator();
+//        // hasNext() 는 요소가 있는지 없는지를 boolean 형태로 출력
+//        while (iter.hasNext()) {
+//            System.out.println(iter.next());
+//            // iter.next() 는 요소를 꺼내는 메써드
+
+
         // 완주하지 못한 선수
-        // 푸는 것 숙제
-        String[] participant = {"leo", "leo", "kiki", "eden", "aaaa"};
-        String[] completion = {"kiki", "leo", "eden", "aaaa"};
-        // completion
-        // eden :3
-        // leo : 1
+//        String[] participant = {"leo", "leo", "kiki", "eden", "aaaa"};
+//        String[] completion = {"kiki", "leo", "eden", "aaaa"};
+//        Map<String, Integer> mp = new HashMap<>();
+//        // 완주자 목록을 mp 에가다가 넣어두고, participant 로 조회해올지
+//        // participant 목록을 mp에다가 넣어두고 완주 목록으로 조회해올지
+//
+//
+//        String answer = "";
+//        for(String a :completion){
+////           if(mp.containsKey(a)){
+////               mp.put(a,mp.get(a)+1);
+////           }else{
+////               mp.put(a,1);
+////           }
+//            mp.put(a, mp.getOrDefault(a, 0) + 1);
+//            System.out.println(mp);
+//
+//        }
+//        for(String a :participant) {
+//            if (!mp.containsKey(a)) {
+//                answer = a;
+//                break;
+//            }
+//            if (mp.get(a) > 1) {
+//                mp.put(a, mp.get(a) - 1); {
+//                    mp.remove(a);
+//                }
+//            }
+//        }
+//
+//        System.out.println(answer);
 
-        Map<String, Integer> mp = new HashMap<>();
 
-        // participant
-        for (String a : participant) {
-            if (mp.containsKey(completion)) {
-                if (mp.get(a) > 1) {
-                    mp.put(a, mp.get(a) - 1);
-                } else {
-                    mp.remove(a);
+        // 정렬을 해주는 Treemap 오름차순으로 정렬
+//        Map<String, Integer> mp1 = new TreeMap<>();
+//        String[] student = {"A형", "B형", "O형", "O형", "B형"};
+//        for(String a : student){
+//            mp1.put(a, mp1.getOrDefault(a, 0)+1);
+//        }
+//        for(String a : mp1.keySet()){
+//            System.out.println("혈액형" + a  );
+//        }
+//
+
+        // set 은 중복을 알아서 제거해준다. 
+//        String [] class1 = {"kim", "lee", "lee", "kim", "choe"};
+        // 맵으로 할 경우 메모리 낭비
+//        Map<String , Integer> map1 = new HashMap<>();
+//        for(String a : class1){
+//            map1.put(a, map1.getOrDefault(a, 0)+ 1);
+//        }
+//        System.out.println(map1.keySet());
+
+//        Set<String> set1 = new HashSet<>();
+//        // Set<String> set1 = new TreeSet<>(); 정렬
+//        for(String a : class1){
+//            set1.add(a);
+//        }
+//        System.out.println(set1);
+//
+//        // 집합은 인덱스가 없기 때문에 enhanced for 문으로만 꺼낼 수 있다.
+//
+
+        // 교집합 , 합집합, 차집합
+//        String [] class1 = {"kim", "lee", "lee", "kim", "choe"};
+//        Set<Integer> st1 = new HashSet<>();
+//        // st1 = {1,2,3] st2 = {2,3,4} 합집합: 1,2,3,4 교집합:2,3 차집합: st1 - st2 : 1
+//        st1.add(1);
+//        st1.add(2);
+//        st1.add(3);
+//        Set<Integer> st2 = new HashSet<>(Arrays.asList(2,3,4)); //깔끔하게 선언하는 방법
+//
+//        // 합집합 : addAll
+////        st1.addAll(st2);
+////        System.out.println(st1);
+//
+//        // 교집합: retainAll
+//        st1.retainAll(st2);
+//        System.out.println(st1);
+//
+//        // 차집합: removeAll
+//        st1.retainAll(st2);
+//        System.out.println(st1);
+//
+//        // 값을 더하는 것 : add
+//        // 여러값을 한꺼번에 더할때: addAll
+//        // 제거하는 것 : remove
+//
+//        Set<Integer> st3 = new HashSet<>();
+//        st3.add(10);
+//        st3.addAll(Arrays.asList(20,30,40));
+//        System.out.println(st3);
+//
+//        // for문으로 중복을 잘라서 돌릴 경우
+//        String [] completion = {"kim", "kim", "lee"};
+//        Set<String> st = new HashSet<>();
+//        for(String a : completion){
+//            st.add(a);
+//        }
+//        System.out.println(st);
+
+
+        // Stack 자료 구조: 후입선출
+        // 최신의 데이터를 사용해야할 때 사용된다.
+//        Stack<String> st = new Stack<>();
+//        // 아래 두개 메서드는 꼭 기억 해야한다
+//        // 자료를 더하는 것은 push
+//        st.push("a1");
+//        st.push("a2");
+//        st.push("a3");
+
+        // 자료를 꺼내는 것은 pop, 그런데 pop 은 실제로 자료를 꺼내버리기 때문에,(꺼낼때도 마지막에 넣은 자료가 맨 먼저 꺼내진다)
+        // peek 을 사용해서 마지막자료가 무엇인지만 확인을 할수도 있다.
+//        System.out.println(st.pop()); // 실제 자료를 꺼내머리기 때문에 마지막 자료가 손실 된다.
+//        System.out.println(st);
+//        st.isEmpty();
+//        if(st.isEmpty()) {
+//            break;
+//        }
+
+
+//        // EG: 1분에 한번씩 환율 데이터가 쌓인다
+//        int [] arr = {1300,1301,1302,1209,1240,1300,1301,1302,1289,1240};
+
+
+        // 프로그래머스 예제 : 같은 숫자는 싫어
+
+        int[] arr = {1, 1, 3, 3, 0, 1, 1};
+        Stack<Integer> st = new Stack<>();
+        // 컬렉션 프레임 워크를 사용할 때는 무조건 is.Empty를 꼭 체크 해줘야 한다.
+        for (int a : arr) {
+            if (st.isEmpty()) {
+                st.push(a);
+            } else {
+                if (st.peek() != a) {
+                    st.push(a);
                 }
-            } else
-                answer = a;
+            }
         }
-    }
+        System.out.println(st);
+        int[] answer = new int[st.size()];
+        // 사이즈로 할 경우 pop 때문에 사이즈가 줄어버린다.
+        // 꼭 할줄 알아야 하는 for 문
+        int num = st.size();
+//        for(int i = num-1; i>=0; i--){
+//            answer[i] = st.pop();
+//        }
+//
+
+
+        // 좋은 예시 방법
+        int num1 = 0;
+        for(int a: st){
+            answer[num1] = a;
+            num1++;
+        }
+        System.out.println(Arrays.toString(answer));
 
 
 
@@ -496,8 +650,20 @@ public class otherVariables {
 
 
 
+        // 리스트로도 가능
 
+//        List<Integer> lst = new ArrayList<>();
+//        for(int a : arr) {
+//            if (lst.isEmpty()) {
+//                lst.add(a);
+//            } else {
+//                if (lst.get(lst.size()-1) != a) {
+//                    lst.add(a);
+//                }
+//            }
+//        }
 
+        
 
 
 
@@ -513,3 +679,19 @@ public class otherVariables {
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
