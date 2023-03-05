@@ -1,3 +1,7 @@
+package Java_basic_grammer;
+
+import com.sun.security.jgss.GSSUtil;
+
 import javax.swing.*;
 import java.lang.reflect.AnnotatedType;
 import java.sql.Array;
@@ -346,7 +350,7 @@ public class otherVariables {
 
 
         // 검색 : binarySearch(이진검색) = 자료형이 정렬되어 있어야 정상적으로 자료를 검색하여 index 를 return.
-        // binarySearch는 프로그래밍 전반에서 아주 중요하다 / index의 절반을 잘라서 크다 작다를 비교 
+        // binarySearch는 프로그래밍 전반에서 아주 중요하다 / index의 절반을 잘라서 크다 작다를 비교
         // 주로 database 에서 주로 사용한다
 //        int [] arr = {30,20,10,50};
 //        Arrays.sort(arr);
@@ -524,7 +528,7 @@ public class otherVariables {
 //        }
 //
 
-        // set 은 중복을 알아서 제거해준다. 
+        // set 은 중복을 알아서 제거해준다.
 //        String [] class1 = {"kim", "lee", "lee", "kim", "choe"};
         // 맵으로 할 경우 메모리 낭비
 //        Map<String , Integer> map1 = new HashMap<>();
@@ -607,48 +611,36 @@ public class otherVariables {
 
         // 프로그래머스 예제 : 같은 숫자는 싫어
 
-        int[] arr = {1, 1, 3, 3, 0, 1, 1};
-        Stack<Integer> st = new Stack<>();
-        // 컬렉션 프레임 워크를 사용할 때는 무조건 is.Empty를 꼭 체크 해줘야 한다.
-        for (int a : arr) {
-            if (st.isEmpty()) {
-                st.push(a);
-            } else {
-                if (st.peek() != a) {
-                    st.push(a);
-                }
-            }
-        }
-        System.out.println(st);
-        int[] answer = new int[st.size()];
-        // 사이즈로 할 경우 pop 때문에 사이즈가 줄어버린다.
-        // 꼭 할줄 알아야 하는 for 문
-        int num = st.size();
-//        for(int i = num-1; i>=0; i--){
-//            answer[i] = st.pop();
+//        int[] arr = {1, 1, 3, 3, 0, 1, 1};
+//        Stack<Integer> st = new Stack<>();
+//        // 컬렉션 프레임 워크를 사용할 때는 무조건 is.Empty를 꼭 체크 해줘야 한다.
+//        for (int a : arr) {
+//            if (st.isEmpty()) {
+//                st.push(a);
+//            } else {
+//                if (st.peek() != a) {
+//                    st.push(a);
+//                }
+//            }
 //        }
+//        System.out.println(st);
+//        int[] answer = new int[st.size()];
+//        // 사이즈로 할 경우 pop 때문에 사이즈가 줄어버린다.
+//        // 꼭 할줄 알아야 하는 for 문
+//        int num = st.size();
+////        for(int i = num-1; i>=0; i--){
+////            answer[i] = st.pop();
+////        }
+////
 //
-
-
-        // 좋은 예시 방법
-        int num1 = 0;
-        for(int a: st){
-            answer[num1] = a;
-            num1++;
-        }
-        System.out.println(Arrays.toString(answer));
-
-
-
-
-
-
-
-
-
-
-
-
+//
+//        // 좋은 예시 방법
+//        int num1 = 0;
+//        for(int a: st){
+//            answer[num1] = a;
+//            num1++;
+//        }
+//        System.out.println(Arrays.toString(answer));
 
         // 리스트로도 가능
 
@@ -663,7 +655,108 @@ public class otherVariables {
 //            }
 //        }
 
+
+        // Queue
+        // Queue 를 선언할 때 LinkedList 를 선언하여 Queue 를 받아주는 방식이 일반적인 방식이다.
+        //<업캐스팅의 이유>
+        // 1. 추후 변경 사항이 생겼을 때, 유연하게 LinkedList 부분만 바꿔주면 되는 유연함이 있다.
+        // 2. LinkedList 가 Queue 상속(또는 구현) 하고 있기 때문에, LinkedList 에는 없는 기능을 쓸 수가 있다.
+//        List<Integer> lst = new ArrayList<>();
+//        Queue<Integer> queue = new LinkedList<>();
+//        queue.add(10);
+//        queue.add(20);
+//        System.out.println(queue);
+//        System.out.println(queue.peek());
+//        System.out.println(queue.poll());
+//        System.out.println(queue);
+
+        //Deque
+        // 속도도 빠르고 효율성이 높아서 JAVA 재단 자체에서 추천하는 자료형
+//        Deque<Integer> dq = new ArrayDeque<>();
+//        // add.Last 가 넣은 값을 순차적으로 뒤로 넣겠다는 의미 10과 20을 넣었을 때 [10,20]
+//        // add.First 는 먼저 넣은 값을 뒤로 밀어 넣겠다는 의미 10과 20일 넣었을 때 [20,10]
+//        dq.addLast(10);
+//        dq.addLast(20);
+//        System.out.println(dq);
+//        System.out.println(dq.peekFirst());
+//        System.out.println(dq.peekLast());
+//        System.out.println(dq.pollFirst());
+//        System.out.println(dq.pollLast());
+
+
+
+
+
+        // 다차원배열
+        // 예를 들어 함수
+//        int [] [] arr = {{2,2}, {3,3}, {4,4}};
+        // 한 사람의 특성을 다차원 배열로 표현하는 경우
+//        String [] person1 = {"kim", "19" , "male"};
+//        String [] person2 = {"Lee", "19" , "male"};
+//        String [] person3 = {"Choe", "19" , "male"};
+//
+//        String [] [] class1 = {{"kim", "19" , "male"}, {"lee", "19" , "male"}, {"Choe", "19" , "male"}};
+//        System.out.println(class1[1][0]);
+
+
+        // 배열을 선언할 때 빈 배열을 지정하고 싶으면 길이를 정해 놓은 채 선언하면 된다.
+        // []첫번째는 한 묶음에 몇개가 들어갈지
+        // []두번째는 개당 묶음에 몇개를 넣을지를 지정하는데 이거는 가변적으로 사용이 가능하다.
+        String [][] class2 = new String[3][];
+        // 아래는 허용되지 못하는 자료 입력 방식
+//        class2 [0][0] = "kim";
+//        class2 [0][1] = "19";
+//        class2 [0][2] = "female";
+//        class2 [1][0] = "lee";
+//        class2 [1][1] = "20";
+//        class2 [2][0] = "choe";
+//        class2 [2][1] = "20";
+
+
+        //for 문으로 돌릴때 class2가 배열이니 String [] 배열로 먼저 받아주고 그 다음 String 으로 받아줘야 한다.
+//        for(String[] arr: class2){
+//            for(String a : arr){
+//                System.out.print(a + "");
+//            }
+//            System.out.println();
+//        }
+
+
+
+        // 2차원 문제
+
+        int [][] s1 = {{60,40,70,50}, {80,80,90,100},{10,60,70,40,30}};
+        // for 문을 통해 각 반의 수학점수의 평균을 구하시오.
+        // 평균을 담은 차원 배열을 만들어서 출력을 해주세요.
+
+        int [] answer = new int[s1.length];
+        for(int i = 0; i < s1.length; i++){
+            int total = 0;
+            for(int math : s1[i]){
+                total += math;
+            }
+            answer[i] = (total/s1[i].length);
+        }
         
+
+
+
+        // 선생님 풀이
+//        int [] answer = new int[s1.length];
+//        for(int i = 0; i < s1.length; i++){
+//            int total = 0;
+//            for(int math : s1[i]){
+//                total += math;
+//            }
+//            answer[i] = (total/s1[i].length);
+//        }
+//        System.out.println(Arrays.toString(answer));
+
+
+
+
+
+
 
 
 
