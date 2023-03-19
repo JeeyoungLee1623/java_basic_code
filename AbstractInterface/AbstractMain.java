@@ -12,7 +12,7 @@ public class AbstractMain {
 //        c1.Cry();
 
         // 객체타입을 CatImplements 로 할수도 있지만, AnimalInterface1 로도 할 수 있다.
-       // CatImplements c2 = new CatImplements();
+        // CatImplements c2 = new CatImplements();
         // 하지만 보통 아래와 같이 객체를 생성한다.
 //        AnimalInterface1 c2 = new CatImplements();
 //        c2.cry();
