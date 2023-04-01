@@ -1,5 +1,7 @@
 package AnonymousLambda;
 
+import AbstractInterface.Animal;
+
 public class AnonymousMain {
     public static void main(String[] args) {
 
@@ -28,6 +30,14 @@ public class AnonymousMain {
 //        // 참조 변수의 타입이 Class 로 출력되지 않고, 실행하고 있는 클래스의 이름이 출력된다.
 //        System.out.println(a2.getClass());
 
+//        AnimalInterface a3 = new AnimalInterface() {
+//            @Override
+//            public void cry(String a) {
+//                System.out.println("cry cry" + a);
+//            }
+//        };
+
+
 
         // 마지막 대괄호에 ; 필수
 //        AnimalInterface ai = new AnimalInterface(){
@@ -44,7 +54,11 @@ public class AnonymousMain {
         // 매개변수의 타입 또는 갯수 만으로도 메서드를 구분지을 수 있을 때 익명 함수를 쓸 수 있다.
         // -> (람다식)함수 전환으로 {} 의 역할을 한다.
         AnimalInterface ai2 = (String a) -> System.out.println(a + "야옹 야옹");
-        ai2.cry("abc");
+//        ai2.cry("abc");
+        AnimalInterface a4 = (String a) -> System.out.println("cry cry" + a);
+        a4.cry("dog");
+
+
 
 
 

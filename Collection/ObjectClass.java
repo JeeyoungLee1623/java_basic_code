@@ -12,7 +12,7 @@ public class ObjectClass {
         Player p = new Player();
         p.toString();
 
-        // equals() 등 총 11개의 메서드가 object 클래스내에 내장되어 있다.
+        // toString, equals() 등 총 11개의 메서드가 object 클래스내에 내장되어 있다.
 
 
 
